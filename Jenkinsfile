@@ -4,7 +4,9 @@ pipeline{
     stage("build"){
       steps{
           echo 'starting build for application'
-          docker.build("Dockerfile")
+          script {
+               app = docker.build("mo-air-traffic")
+          }
       }
     }
     stage("test"){
